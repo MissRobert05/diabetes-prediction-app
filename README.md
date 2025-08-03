@@ -4,6 +4,7 @@ This project is a **Machine Learning web app** that predicts whether a person is
 
 ---
 
+
 ## 🚀 Features
 - Trained multiple models: **Logistic Regression**, **Random Forest**, **Decision Tree**, **Support Vector Machine**, **K-Nearest Neighbors**, and **Naive Bayes**.
 - Encoded categorical features using **Ordinal Encoding**.
@@ -15,11 +16,13 @@ This project is a **Machine Learning web app** that predicts whether a person is
 
 ---
 
+
 ## 📓 Model Training
 The machine learning models were trained and evaluated in **Google Colab**. After training, the models and preprocessing encoders (OrdinalEncoder & Scaler) were saved as `.pkl` files and stored in the `/models` directory for deployment.  
 > **Note:** The training notebook is not included in this repository as only the deployment artifacts are required.
 
 ---
+
 
 ## 📂 Project Structure
 Diabetes-Prediction-App/
@@ -43,10 +46,11 @@ Diabetes-Prediction-App/
 
 ---
 
+
 ## 🛠️ How to Run Locally
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/your-username/diabetes-prediction-app.git
+   git clone https://github.com/MissRobert05/diabetes-prediction-app.git
    cd diabetes-prediction-app
 
 2. **Create a virtual environment:**
@@ -61,6 +65,8 @@ pip install -r requirements.txt
 4. **Run the Streamlit App:**
 bash:
 streamlit run app.py
+
+
 
 🌐 Deployment (Optional)
 You can deploy this app on:
@@ -85,8 +91,12 @@ Select app.py as the entry file.
 
 Click Deploy.
 
+
+
 ✍️ Author
 MISS ROBERT
+
+
 
 📝 License
 This project is open-source and free to use.
