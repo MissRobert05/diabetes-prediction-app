@@ -3,8 +3,6 @@ import pandas as pd
 import joblib
 import base64
 import os
-import matplotlib.pyplot as plt
-from fpdf import FPDF
 import io
 
 # -------------------------------
@@ -77,31 +75,6 @@ def user_input_form():
                                'smoking_history', 'bmi', 'HbA1c_level', 'blood_glucose_level'])
     return df
 
-# -------------------------------
-# 📊 Probability Bar Chart Function
-# -------------------------------
-def plot_probability_chart(prob):
-    fig, ax = plt.subplots()
-    ax.bar(['Not Diabetic', 'Likely Diabetic'], [1 - prob, prob], color=['green', 'red'])
-    ax.set_ylabel('Probability')
-    ax.set_ylim(0, 1)
-    st.pyplot(fig)
-
-# -------------------------------
-# 📄 Download PDF Function
-# -------------------------------
-def create_pdf(result_text):
-    pdf = FPDF()
-    pdf.add_page()
-    pdf.set_font("Arial", size=14)
-    pdf.set_text_color(255, 75, 75)
-    pdf.cell(200, 10, txt="Diabetes Prediction Result", ln=1, align='C')
-    pdf.ln(10)
-    pdf.multi_cell(0, 10, result_text)
-    pdf_output = io.BytesIO()
-    pdf.output(pdf_output)
-    pdf_output.seek(0)
-    return pdf_output
 
 # -------------------------------
 # 🚀 Main App
@@ -130,15 +103,6 @@ def main():
 
         result = "⚠️ Likely Diabetic" if prediction == 1 else "✅ Not Diabetic"
         st.success(f"**Result using {selected_model_name}:** {result}")
-
-        # Chart Visualization
-        st.subheader("📊 Prediction Probability")
-        plot_probability_chart(probability)
-
-        # Download PDF Button
-        result_text = f"Model: {selected_model_name}\n\nResult: {result}\nProbability of Diabetes: {probability:.2f}"
-        pdf_file = create_pdf(result_text)
-        st.download_button(label="📅 Download Result as PDF", data=pdf_file, file_name="Diabetes_Result.pdf", mime='application/pdf')
 
     # Future: Database Storage Section (Placeholder)
     st.markdown("---")
